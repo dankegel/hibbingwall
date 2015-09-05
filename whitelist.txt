@@ -28,8 +28,10 @@ assets-jp.jwpsrv.com
 ka-exercise-screenshots.s3.amazonaws.com
 ak.sail-horizon.com
 s3.amazonaws.com
+s3-1.amazonaws.com
 s3-1-w.amazonaws.com
 54.231.15.57
+72.21.91.42
 air.tds.airast.org
 demo.tds.airast.org
 login4.cloud1.tds.airast.org
