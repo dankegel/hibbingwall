@@ -2,8 +2,10 @@
 208.67.220.123
 kegel.com
 fpdownload.adobe.com
-ec2-54-85-77-86.compute-1.amazonaws.com
+ec2-52-2-158-250.compute-1.amazonaws.com
+ec2-54-164-237-242.compute-1.amazonaws.com
 ec2-54-165-16-255.compute-1.amazonaws.com
+ec2-54-85-77-86.compute-1.amazonaws.com
 107.23.36.160
 107.23.235.219
 107.23.236.179
@@ -50,6 +52,8 @@ apis.google.com
 chrome.google.com
 d7mj4aqfscim2.cloudfront.net
 duolingo.com
+54.85.194.172
+54.84.236.209
 duolingotest.zendesk.com
 en.wikipedia.org
 static.duolingo.com
