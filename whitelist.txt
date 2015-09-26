@@ -62,9 +62,24 @@ s3-1.amazonaws.com
 ec2-52-4-51-244.compute-1.amazonaws.com
 ec2-54-175-89-173.compute-1.amazonaws.com
 server-54-192-87-88.lax3.r.cloudfront.net
+server-54-230-87-250.lax3.r.cloudfront.net
 a23-4-26-46.deploy.static.akamaitechnologies.com
 
 mathisfun.com
 www.mathisfun.com
 
 ka-perseus-graphie.s3.amazonaws.com
+
+199.96.57.6
+proxy.vip.pod5.iad1.zdsys.com
+khanacademy.com
+162-180.amazon.com
+static.olark.com
+log.olark.com
+api.olark.com
+start-2.olark.com
+schema.org
+www.w3.org
+opengraphprotocol.org
+www.facebook.com
+ogp.me
