@@ -83,3 +83,7 @@ www.w3.org
 opengraphprotocol.org
 www.facebook.com
 ogp.me
+
+www.portolams.org
+new.schoolnotes.com
+www.wikipedia.com
