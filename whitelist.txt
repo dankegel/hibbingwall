@@ -59,11 +59,18 @@ en.wikipedia.org
 static.duolingo.com
 www.duolingo.com
 s3-1.amazonaws.com
+169.54.129.34-static.reverse.softlayer.com
+a23-193-147-107.deploy.static.akamaitechnologies.com
+a23-193-157-57.deploy.static.akamaitechnologies.com
+a23-4-26-46.deploy.static.akamaitechnologies.com
+a23-73-210-11.deploy.static.akamaitechnologies.com
 ec2-52-4-51-244.compute-1.amazonaws.com
 ec2-54-175-89-173.compute-1.amazonaws.com
 server-54-192-87-88.lax3.r.cloudfront.net
+server-54-230-84-36.lax3.r.cloudfront.net
+server-54-230-85-187.lax3.r.cloudfront.net
+server-54-230-87-114.lax3.r.cloudfront.net
 server-54-230-87-250.lax3.r.cloudfront.net
-a23-4-26-46.deploy.static.akamaitechnologies.com
 
 mathisfun.com
 www.mathisfun.com
@@ -83,6 +90,9 @@ www.w3.org
 opengraphprotocol.org
 www.facebook.com
 ogp.me
+169.54.129.23-static.reverse.softlayer.com
+169.54.129.30-static.reverse.softlayer.com
+72.21.91.110
 
 www.portolams.org
 new.schoolnotes.com
