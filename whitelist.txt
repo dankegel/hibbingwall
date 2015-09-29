@@ -66,7 +66,9 @@ a23-4-26-46.deploy.static.akamaitechnologies.com
 a23-73-210-11.deploy.static.akamaitechnologies.com
 ec2-52-4-51-244.compute-1.amazonaws.com
 ec2-54-175-89-173.compute-1.amazonaws.com
+server-54-192-87-75.lax3.r.cloudfront.net
 server-54-192-87-88.lax3.r.cloudfront.net
+server-54-192-87-93.lax3.r.cloudfront.net
 server-54-230-84-36.lax3.r.cloudfront.net
 server-54-230-85-187.lax3.r.cloudfront.net
 server-54-230-87-114.lax3.r.cloudfront.net
@@ -91,6 +93,7 @@ opengraphprotocol.org
 www.facebook.com
 ogp.me
 169.54.129.23-static.reverse.softlayer.com
+169.54.129.26-static.reverse.softlayer.com
 169.54.129.30-static.reverse.softlayer.com
 72.21.91.110
 
