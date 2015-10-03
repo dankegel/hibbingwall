@@ -4,6 +4,11 @@ set -x
 echo j | ufw reset
 ufw default deny incoming
 ufw default deny outgoing
+# NTP
+ufw allow in proto udp from any port 123
+ufw allow out proto udp to any port 123
+ufw allow in proto tcp from any port 123
+ufw allow out proto tcp to any port 123
 # DNS
 ufw allow in proto udp from any port 53
 ufw allow out proto udp to any port 53
