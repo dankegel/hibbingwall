@@ -73,6 +73,7 @@ server-54-230-84-36.lax3.r.cloudfront.net
 server-54-230-85-187.lax3.r.cloudfront.net
 server-54-230-87-114.lax3.r.cloudfront.net
 server-54-230-87-250.lax3.r.cloudfront.net
+server-54-239-132-191.sfo9.r.cloudfront.net
 
 mathisfun.com
 www.mathisfun.com
@@ -97,6 +98,7 @@ ogp.me
 169.54.129.30-static.reverse.softlayer.com
 72.21.91.110
 
+portolams.org
 www.portolams.org
 new.schoolnotes.com
 www.wikipedia.com
