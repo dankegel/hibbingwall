@@ -1,10 +1,12 @@
 208.67.222.123
 208.67.220.123
+208.65.155.25
 kegel.com
 fpdownload.adobe.com
 ec2-52-2-158-250.compute-1.amazonaws.com
 ec2-54-164-237-242.compute-1.amazonaws.com
 ec2-54-165-16-255.compute-1.amazonaws.com
+ec2-54-165-44-229.compute-1.amazonaws.com
 ec2-54-85-77-86.compute-1.amazonaws.com
 107.23.36.160
 107.23.235.219
