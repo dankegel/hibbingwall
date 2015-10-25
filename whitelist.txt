@@ -64,6 +64,7 @@ duolingo.com
 duolingotest.zendesk.com
 ec2-52-4-51-244.compute-1.amazonaws.com
 ec2-54-175-89-173.compute-1.amazonaws.com
+ec2-52-20-116-182.compute-1.amazonaws.com
 en.wikipedia.org
 lax02s21-in-f13.1e100.net
 lax02s22-in-f14.1e100.net
