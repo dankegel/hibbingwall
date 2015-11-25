@@ -2,10 +2,8 @@
 set -e
 
 expand_addrs() {
-    echo expand_addrs: args $@ >&2
     for host
     do
-        echo expand_addrs: host is $host >&2
         case $host in
         google.com)
             dig -t txt _netblocks.google.com | grep '^_netblocks' | sed 's/"$//;s/.*"//' | tr ' ' '\012' | grep / | sed 's/ip4://' | sort -u
@@ -138,6 +136,7 @@ start) do_start ;;
 add) do_add "$@";;
 learn) do_learn $1;;
 cb|current-blocked) current_blocked_connections;;
+ex|expand) expand_addrs $@;;
 *) do_usage; exit 1;;
 esac
 
