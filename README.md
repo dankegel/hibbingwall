@@ -11,3 +11,12 @@ sudo sh hibbingwall.sh learn
 # now your kid can use that site
 ```
 
+## Fancy stuff:
+```
+# Add a particular site or two
+sudo sh hibbingwall.sh add www.wikipedia.org www.wikia.com
+# Special case: adding google.com adds all its netblocks
+sudo sh hibbingwall.sh add google.com
+# See what addresses a hostname expands to
+sh hibbingwall.sh expand www.wikia.com
+```
