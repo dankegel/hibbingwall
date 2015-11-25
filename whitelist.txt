@@ -114,3 +114,5 @@ portolams.org
 www.portolams.org
 new.schoolnotes.com
 www.wikipedia.com
+f.81.36a9.ip4.static.sl-reverse.com
+server-54-192-87-224.lax3.r.cloudfront.net
