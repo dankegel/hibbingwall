@@ -53,10 +53,11 @@ do_start() {
         ufw allow out proto tcp to $net
     done
 
-    for block in `cat $whitelist | grep -v '^#' | grep .`
+    hosts=`cat $whitelist | grep -v '^#' | grep .`
+    for addr in `expand_addrs $hosts`
     do
-        ufw allow in proto tcp from $block
-        ufw allow out proto tcp to $block
+        ufw allow in proto tcp from $addr
+        ufw allow out proto tcp to $addr
     done
 
     ufw enable
@@ -74,6 +75,10 @@ do_add() {
         fi
         echo "Adding addresses $addrs"
         set $addrs
+    elif test "$1" = "google"
+    then
+        addrs=`dig -t txt _netblocks.google.com | grep '^_netblocks' | sed 's/"$//;s/.*"//' | tr ' ' '\012' | grep / | sed 's/ip4://' | sort -u | fgrep -w -v -f $whitelist || true`
+        echo "Adding addresses $addrs"
     fi
     for a
     do
