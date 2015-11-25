@@ -1,17 +1,17 @@
 #!/bin/sh
 set -e
-browsers="firefox|chrome"
 
 expand_addrs() {
+    echo expand_addrs: args $@ >&2
     for host
     do
+        echo expand_addrs: host is $host >&2
         case $host in
+        google.com)
+            dig -t txt _netblocks.google.com | grep '^_netblocks' | sed 's/"$//;s/.*"//' | tr ' ' '\012' | grep / | sed 's/ip4://' | sort -u
+            ;;
         *[a-zA-Z]*)
-            host $host | grep 'address' | sed 's/.* //' > host.tmp
-            cat host.tmp
-            # show it to stderr, too, so it doesn't disappear into a pipe
-            cat host.tmp >&2
-            rm host.tmp
+            host $host | grep 'address' | sed 's/.* //'
             ;;
         *) echo $host;;
         esac
@@ -53,45 +53,36 @@ do_start() {
         ufw allow out proto tcp to $net
     done
 
-    hosts=`cat $whitelist | grep -v '^#' | grep .`
-    for addr in `expand_addrs $hosts`
-    do
-        ufw allow in proto tcp from $addr
-        ufw allow out proto tcp to $addr
-    done
+    hosts=`cat $whitelist | grep -v '^#' | grep . | sort -u`
+    do_add $hosts
 
     ufw enable
     ufw status
 }
 
 do_add() {
-    if test "$1" = ""
-    then
-        addrs=`netstat -p -t --wide | grep SYN | egrep "$browsers" | awk '{print $5}' | sed 's/:.*//' | sort -u | fgrep -w -v -f $whitelist || true`
-        if test "$addrs" = ""
-        then
-            echo "Nothing to add"
-            return 0
-        fi
-        echo "Adding addresses $addrs"
-        set $addrs
-    elif test "$1" = "google"
-    then
-        addrs=`dig -t txt _netblocks.google.com | grep '^_netblocks' | sed 's/"$//;s/.*"//' | tr ' ' '\012' | grep / | sed 's/ip4://' | sort -u | fgrep -w -v -f $whitelist || true`
-        echo "Adding addresses $addrs"
-    fi
+    echo "add: given arguments $@"
+    args=""
+    # Add arguments to whitelist file, but only if not already there
     for a
     do
-        echo $a >> $whitelist
+        if ! echo $a | fgrep -q -w -v -f $whitelist
+        then
+            echo $a >> $whitelist
+        fi
     done
-    expanded=`expand_addrs $addrs`
-    echo "Unblocking $expanded"
+    expanded=`expand_addrs $@`
+    echo "add: adding addresses $expanded"
     for block in $expanded
     do
         ufw allow in proto tcp from $block || true
         ufw allow out proto tcp to $block || true
     done
-    echo "Done adding"
+    echo "add: done"
+}
+
+current_blocked_connections() {
+    netstat -p -t --wide | grep SYN | awk '{print $5}' | sed 's/:.*//' | sort -u
 }
 
 do_learn() {
@@ -99,9 +90,13 @@ do_learn() {
     case "$1" in
     [0-9]*) tries=`expr $1 \* 60`;;
     esac
+
     while test $tries -gt 0
     do
-        do_add
+        if addrs=`current_blocked_connections`
+        then
+            do_add $addrs
+        fi
         tries=`expr $tries - 1`
         sleep 5
     done
@@ -138,6 +133,7 @@ pull) do_pull ;;
 start) do_start ;;
 add) do_add "$@";;
 learn) do_learn $1;;
+cb|current-blocked) current_blocked_connections;;
 *) do_usage; exit 1;;
 esac
 
