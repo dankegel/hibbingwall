@@ -61,12 +61,16 @@ do_start() {
 }
 
 do_add() {
+    if test "$1" = ""
+    then
+        return
+    fi
     echo "add: given arguments $@"
     args=""
     # Add arguments to whitelist file, but only if not already there
     for a
     do
-        if ! echo $a | fgrep -q -w -v -f $whitelist
+        if echo $a | fgrep -q -w -v -f $whitelist
         then
             echo $a >> $whitelist
         fi
