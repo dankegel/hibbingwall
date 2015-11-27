@@ -1,5 +1,5 @@
 # hibbingwall
-Simple learning firewall.
+Simple learning firewall for Ubuntu Linux.  Requires ufw.
 
 ## Example:
 ```
