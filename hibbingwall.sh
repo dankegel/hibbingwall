@@ -115,6 +115,19 @@ do_pull() {
     wget -O $whitelist https://raw.githubusercontent.com/dankegel/hibbingwall/master/whitelist.txt
 }
 
+# Find probable class B networks among the whitelist
+do_detect_netblocks() {
+   expand_addrs `cat $whitelist` | sed 's/\.[0-9]*\.[0-9]*$//' | sort | uniq -c | grep -v : | awk '$1 > 1 {print $2}'
+}
+
+do_add_netblocks() {
+    for block in `do_detect_netblocks`
+    do
+        ufw allow in proto tcp from $block/16 || true
+        ufw allow out proto tcp to $block/16 || true
+    done
+}
+
 do_usage() {
     echo "Usage:"
     echo "$0 clear"
@@ -137,6 +150,9 @@ add) do_add "$@";;
 learn) do_learn $1;;
 cb|current-blocked) current_blocked_connections;;
 ex|expand) expand_addrs $@;;
+exa) expand_addrs `cat $whitelist`;;
+dnb) do_detect_netblocks;;
+anb) do_add_netblocks;;
 *) do_usage; exit 1;;
 esac
 
